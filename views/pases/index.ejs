@@ -1,0 +1,47 @@
+<%- include ../layouts/cabecera.ejs %> 
+        <br/>
+        <br/>
+        <a href="/pases/crear"  type="button">Crear un nuevo pase</a>
+        <br/>
+        <br/>
+        
+        <table class="table" border="3" bordercolor="red" bordercolor="red" >
+            <thead class="thead"  bgcolor="red">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Compra</th>
+                    <th>Fecha de Expiración</th>
+                    <th>Tipo de Pase</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let pase = 0; pase < pases.length; pase++ ) { %>
+                    <tr>
+                        <td bgcolor="red"> <%=pases[pase].id_pase %>  </td>
+    
+                        <td> <%=pases[pase].nombre %> </td>
+                        <td> <%=pases[pase].fecha_compra %> </td>
+                        <td> <%=pases[pase].expiracion %> </td>
+                        <td> <%=pases[pase].tipo_pase %> </td>
+
+                        <td> 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="get" action="/pases/editar/<%=pases[pase].id_pase %>">
+                                <button type="submit">Editar</button>
+                            </form>
+                            </div>
+                            | 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline"  method="post" action="/pases/eliminar/<%=pases[pase].id_usuario %>" >
+                                 <button  type="submit">Borrar</button>
+                            </form>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <%- include ../layouts/pie.ejs %> 

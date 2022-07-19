@@ -1,0 +1,27 @@
+<%- include ../layouts/cabecera.ejs %> 
+
+            <div class="card-body">
+                <table id="resultados2" class="table" border="3"  bordercolor="green">
+                    <thead bgcolor="green">
+                        <tr >
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha de Expiración</th>
+                            <th scope="col">Pases</th>
+                            <th scope="col">Cupos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% datos.forEach((pase) => { %> 
+                        <tr>
+                            <td><%= pase.nombre %></td>
+                            <td><%= pase.expiracion%></td>
+                            <td><%= pase.pase%></td>
+                            <td><%= pase.cupo%></td>
+                        </tr>
+                        <% }) %> 
+                    </tbody>
+                </table>
+                <a  href="http:/pases/comparacionfecha/">Atrás</a>
+            </div>
+   
+    <%- include ../layouts/pie.ejs %> 

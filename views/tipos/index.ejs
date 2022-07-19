@@ -1,0 +1,46 @@
+<%- include ../layouts/cabecera.ejs %> 
+        <br/>
+        <br/>
+        <a href="/tipos/crear" type="button">Crear un nuevo horario de medicamentos</a>
+        <br/>
+        <br/>
+        
+        <table class="table"  border="3" bordercolor="green">
+            <thead class="thead" bgcolor="green">
+                <tr>
+                    <th >#</th>
+                    <th>Tipo</th>
+                    <th>Cupo</th>
+                    <th>Pase</th>
+                    <th>Costo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let tipo = 0; tipo< tipos.length; tipo++ ) { %>
+                    <tr>
+                        <td  bgcolor="green"> <%=tipos[tipo].id_tipo %>  </td>
+    
+                        <td> <%=tipos[tipo].tipo_pase %> </td>
+                        <td> <%=tipos[tipo].cupo %> </td>
+                        <td> <%=tipos[tipo].pase %> </td>
+                        <td> <%=tipos[tipo].costo %> </td>
+
+                        <td> 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="get" action="/tipos/editar/<%=tipos[tipo].id_tipo%>">
+                                <button  type="submit">Editar</button>
+                            </form>
+                            </div>
+                            | 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <form class="form-inline"  method="post" action="/tipos/eliminar/<%=tipos[tipo].id_tipo%>" >
+                                     <button type="submit">Borrar</button>
+                                </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <%- include ../layouts/pie.ejs %> 

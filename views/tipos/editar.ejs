@@ -1,0 +1,49 @@
+<%- include ../layouts/cabecera.ejs %> 
+<% if (tipos) { %>
+<br/>
+<br/>
+<div >
+    
+    <div class="card-body">
+        <h5 class="card-title">Editar Datos del Tipon de Pases</h5>
+        <p class="card-text">
+            <form action="/tipos/actualizar" method="POST">
+                <input id="id" name="id" value="<%= tipos.id_tipo%>" hidden>
+                
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Usuario</label>
+                    <select name="nombre" id="nombre" class="form-select" tabindex="1">
+                        <option value="<%= tipos.id_pase %>" selected hidden>
+                            <%= tipos.tipo_pase%>
+                        </option>
+                        <% pase.forEach((pase)=> { %>
+                            <option value="<%= pase.id_pase %>">
+                                <%= pase.tipo_pase%>
+                            </option>
+                            <% }) %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Cupo</label>
+                    <input id="my-input"  value="<%=tipos.cupo%>" type="number" name="cupo" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="my-input">Pase</label>
+                    <input id="my-input" value="<%=tipos.pase%>" type="number" name="pase" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="my-input">Costo</label>
+                    <input id="my-input" }value="<%=tipos.costo%>" type="number" name="costo" required>
+                </div>
+        
+                    
+                    <button type="submit">Actualizar</button>
+                    <a  href="http:/tipos">Cancelar</a>
+                </form>
+        </p>
+    </div>
+</div>
+<% } %>
+<%- include ../layouts/pie.ejs %> 

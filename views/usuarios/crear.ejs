@@ -1,0 +1,24 @@
+<%- include ../layouts/cabecera.ejs %> 
+<br/><br/>
+<div >
+    <div class="card-body">
+        <h5 class="card-title">Datos del Usuario</h5>
+        <p class="card-text"></p>
+        <form action="/usuarios/guardar" method="post"> 
+            <div class="form-group">
+                <label for="my-input">Nombre Completo</label>
+                <input id="my-input"  type="text" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="my-input">Correo</label>
+                <input id="my-input"  type="text" name="correo" required>
+            </div>
+            
+        
+            <button  type="submit" >Guardar</button>
+            <a  href="http:/usuarios">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+<%- include ../layouts/pie.ejs %> 

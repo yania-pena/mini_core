@@ -1,0 +1,42 @@
+<%- include ../layouts/cabecera.ejs %> 
+        <br/>
+        <br/>
+        <a href="/usuarios/crear" type="button">Crear un nuevo usuario</a>
+        <br/>
+        <br/>
+        
+        <table class="table" border="3" bordercolor="blue" bordercolor="blue" >
+            <thead class="thead" bgcolor="skyblue">
+                <tr >
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let usuario= 0; usuario< usuarios.length; usuario++ ) { %>
+                    <tr>
+                        <td bgcolor="skyblue"> <%=usuarios[usuario].id_usuario %>  </td>
+    
+                        <td> <%=usuarios[usuario].nombre %> </td>
+                        <td> <%=usuarios[usuario].correo %> </td>
+
+                        <td> 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="get" action="/usuarios/editar/<%=usuarios[usuario].id_usuario %>">
+                                <button type="submit">Editar</button>
+                            </form>
+                            </div>
+                            | 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline"  method="post" action="/usuarios/eliminar/<%=usuarios[usuario].id_usuario %>" >
+                                 <button  type="submit">Borrar</button>
+                            </form>
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <%- include ../layouts/pie.ejs %> 
